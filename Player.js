@@ -4,7 +4,6 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    // current_buy_in - players[in_action][bet] + minimum_raise
     try {
       console.log(gameState);
 
@@ -19,10 +18,11 @@ class Player {
         gameState.players[gameState.in_action].bet +
         gameState.minimum_raise +
         1;
+
       console.log('my bet:', myBet);
       bet(myBet);
     } catch (e) {
-      console.log(e);
+      console.log('exception', e);
       bet(0);
     }
   }
