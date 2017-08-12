@@ -19,6 +19,35 @@ function leanPokerToHuman(cardsAsLPCard) {
     return cardAsLPCard.rank + suitChar + '';
   });
 }
+function leanPokerToPokerEval(cardsAsLPCard) {
+  return cardsAsLPCard.map(cardAsLPCard => {
+    let suitChar;
+
+    switch (cardAsLPCard.suit) {
+      case 'spades':
+        suitChar = 's';
+        break;
+      case 'clubs':
+        suitChar = 'c';
+        break;
+      case 'hearts':
+        suitChar = 'h';
+        break;
+      case 'diamonds':
+        suitChar = 'd';
+        break;
+    }
+
+    let cardRank;
+    if (cardAsLPCard.rank === '10') {
+      cardRank = 'T';
+    } else {
+      cardRank = cardAsLPCard.rank;
+    }
+
+    return cardRank + suitChar + '';
+  });
+}
 
 function humanToLeanPoker(cards) {
   return cards.map(card => {
@@ -49,5 +78,6 @@ function humanToLeanPoker(cards) {
 
 module.exports = {
   humanToLeanPoker,
-  leanPokerToHuman
+  leanPokerToHuman,
+  leanPokerToPokerEval
 };
