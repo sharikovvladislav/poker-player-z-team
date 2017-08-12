@@ -4,11 +4,16 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    bet(0);
+    // current_buy_in - players[in_action][bet] + minimum_raise
+    var bet =
+      gameState.current_buy_in -
+      gameState.players[gameState.in_action][gameState.bet] +
+      gameState.minimum_raise +
+      1;
+    bet(bet);
   }
 
-  static showdown(gameState) {
-  }
+  static showdown(gameState) {}
 }
 
 module.exports = Player;
