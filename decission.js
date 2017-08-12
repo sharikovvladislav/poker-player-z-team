@@ -11,33 +11,16 @@ const genCount = 500,
       }, []);
 
 function makeDecission(gameState) {
-  let countWithStack = 0;
-  for (let i = 0; i < gameState.players; i++) {
-    const tablePlayer = gameState.players[i];
+  var p = getP(gameState), // вероятность выиграша
+    win = p * gameState.pot,
+    bet_cur = gameState.players[gameState.in_action].bet + gameState.minimum_raise;
 
-    if (i !== gameState.in_action && tablePlayer.stack > 0) {
-      countWithStack += 1;
-    }
-  }
-  if (countWithStack > 1) {
-    // fold
+  if (win < bet_cur) {
     return 0;
+  } else if (bet_cur + gameState.small_blind > win && win >= bet_cur) {
+    return gameState.current_buy_in - gameState.players[gameState.in_action].bet;
   } else {
-    // game
-    // if (gameState.players)
-    return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise + 1;
-
-    var p = getP(gameState), // вероятность выиграша
-      win = p*gameState.pot,
-      bet_cur = gameState.players[gameState.in_action].bet + gameState.minimum_raise;
-
-    if (win < bet_cur) {
-      return 0;
-    } else if (bet_cur + gameState.small_blind > win && win >= bet_cur) {
-      return gameState.current_buy_in - gameState.players[gameState.in_action].bet;
-    } else {
-      return gameState.players[gameState.in_action].stack;
-    }
+    return gameState.players[gameState.in_action].stack;
   }
 
   try {
