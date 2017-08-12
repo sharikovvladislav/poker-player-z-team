@@ -23,7 +23,7 @@ function makeDecission(gameState) {
 
   }
 
-  return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise + 1;
+  // return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise + 1;
 
   if (win < bet_cur) {
     return 0;
