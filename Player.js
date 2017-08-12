@@ -15,11 +15,11 @@ class Player {
 
     var myBet =
       gameState.current_buy_in -
-      gameState.players[gameState.in_action][gameState.bet] +
+      gameState.players[gameState.in_action].bet +
       gameState.minimum_raise +
       1;
     console.log('my bet:', myBet);
-    bet(0);
+    bet(myBet);
   }
 
   static showdown(gameState) {}
