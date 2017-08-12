@@ -12,7 +12,7 @@ const genCount = 10000,
 
 function makeDecission(gameState) {
   var p = getP(gameState), // вероятность выиграша
-      win = p*gameState.pot,
+      win = 0.5+p*gameState.pot,
       bet_cur = gameState.players[gameState.in_action].bet + gameState.minimum_raise;
 
   try {
