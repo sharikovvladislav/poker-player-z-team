@@ -76,7 +76,17 @@ function humanToLeanPoker(cards) {
   });
 }
 
+function isBetDone(gameState) {
+  return gameState.players[gameState.in_action].bet !== 0;
+}
+
+function isPreFlop (gameState) {
+  return gameState.community_cards.length === 0;
+}
+
 module.exports = {
+  isBetDone,
+  isPreFlop,
   humanToLeanPoker,
   leanPokerToHuman,
   leanPokerToPokerEval

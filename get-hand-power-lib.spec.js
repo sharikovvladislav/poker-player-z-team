@@ -8,7 +8,7 @@ describe('getHandPowerLib', () => {
 
   it('1', () => {
     expect(
-      getHandPower(utils.humanToLeanPoker(['3C', '3H', '3D', '5C', '5H']))
-    ).toEqual(28687);
+      getHandPower(utils.humanToLeanPoker(['3C', '3H', '3D', '5C', '10H']))
+    ).toEqual(16474);
   });
 });
