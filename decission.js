@@ -1,6 +1,6 @@
 const getHandPower = require('./get-hand-power-lib');
 
-const genCount = 10000,
+const genCount = 1000,
       common = require('./constants'),
       utils = require('./utils'),
       allCards = common.ranks.reduce(function (result, val) {
@@ -23,6 +23,7 @@ function makeDecission(gameState) {
 
   }
 
+  //if (gameState.players)
   // return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise + 1;
 
   if (win < bet_cur) {
