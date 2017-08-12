@@ -1,6 +1,6 @@
 const getHandPower = require('./get-hand-power-lib');
 
-const genCount = 1000,
+const genCount = 500,
       common = require('./constants'),
       utils = require('./utils'),
       allCards = common.ranks.reduce(function (result, val) {
@@ -11,10 +11,6 @@ const genCount = 1000,
       }, []);
 
 function makeDecission(gameState) {
-  var p = getP(gameState), // вероятность выиграша
-      win = p*gameState.pot,
-      bet_cur = gameState.players[gameState.in_action].bet + gameState.minimum_raise;
-
   let countWithStack = 0;
   for (let i = 0; i < gameState.players; i++) {
     const tablePlayer = gameState.players[i];
@@ -28,8 +24,12 @@ function makeDecission(gameState) {
     return 0;
   } else {
     // game
-    //if (gameState.players)
-    // return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise + 1;
+    // if (gameState.players)
+    return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise + 1;
+
+    var p = getP(gameState), // вероятность выиграша
+      win = p*gameState.pot,
+      bet_cur = gameState.players[gameState.in_action].bet + gameState.minimum_raise;
 
     if (win < bet_cur) {
       return 0;
