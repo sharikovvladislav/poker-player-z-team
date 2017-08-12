@@ -26,7 +26,6 @@ describe('', () => {
       );
     });
     it('high set', () => {
-      console.log(utils.humanToLeanPoker(['3C', 'KD', 'KS', '5C', 'KD', '4D']));
       expect(getHandPower(utils.humanToLeanPoker(['3C', 'KD', 'KS', '5C', 'KD', '4D']))).toEqual(
         constants.strengthCoeffiecients.set + 11
       );

@@ -13,9 +13,6 @@ describe('sort', () => {
       ).toEqual(['10D', '3C']);
     });
     it('2', () => {
-      console.log(
-        utils.leanPokerToHuman(utils.humanToLeanPoker(['AC', '5D', 'JH', '5S']))
-      );
       expect(
         utils.leanPokerToHuman(
           sort(utils.humanToLeanPoker(['AC', '5D', 'JH', '5S']))

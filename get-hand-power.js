@@ -1,8 +1,9 @@
 const combinationsEvaluator = require('./combinations-evaluator');
 const sort = require('./sort');
 const constants = require('./constants');
+const utils = require('./utils');
 
-function getHandPower (cards) {
+function getHandPower(cards) {
   const sortedCards = sort(cards);
 
   //console.log('sortedCards', sortedCards);
@@ -11,7 +12,6 @@ function getHandPower (cards) {
 
   result = combinationsEvaluator.getFourStrength(sortedCards);
   if (result != -1) {
-    console.log('kek')
     return constants.strengthCoeffiecients.four + result;
   }
 
@@ -26,8 +26,7 @@ function getHandPower (cards) {
   }
 
   return -1;
-
-  console.log(sortedCards);
 }
+
 
 module.exports = getHandPower;

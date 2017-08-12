@@ -28,7 +28,6 @@ function getSetStrength(sortedCards) {
     const nextRank = sortedCards[i + 1].rank;
     const nextNextRank = sortedCards[i + 2].rank;
 
-    console.log(currentRank, nextRank, nextNextRank);
     if (currentRank === nextRank && currentRank === nextNextRank) {
       return constants.ranks.indexOf(currentRank);
     }
@@ -62,7 +61,6 @@ function getFourStrength(sortedCards) {
 }
 
 function getFlushStrength(cards) {
-  console.log(cards);
   const cardSuits = cards.map(card => card.suit);
 
   let cardCountHash = {
@@ -72,12 +70,9 @@ function getFlushStrength(cards) {
     clubs: 0
   };
 
-  console.log(cardSuits);
   cardSuits.forEach(cardSuit => {
     cardCountHash[cardSuit] += 1;
   });
-
-  console.log(cardCountHash);
 
   if (
     cardCountHash.spades >= 5 ||
