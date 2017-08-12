@@ -47,9 +47,9 @@ function getFourStrength (sortedCards) {
      const currentRank = sortedCards[i].rank;
      const nextRank = sortedCards[i+1].rank;
      const nextNextRank = sortedCards[i+2].rank;
-     const nextNextNextRank = sortedCards[i+2].rank;
+     const nextNextNextRank = sortedCards[i+3].rank;
 
-     console.log(currentRank, nextRank, nextNextRank);
+     //console.log(currentRank, nextRank, nextNextRank, nextNextNextRank);
      if (currentRank === nextRank && currentRank === nextNextRank && currentRank === nextNextNextRank) {
        return constants.ranks.indexOf(currentRank);
      }
