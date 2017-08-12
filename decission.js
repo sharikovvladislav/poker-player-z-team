@@ -28,7 +28,7 @@ function makeDecission(gameState) {
   if (win < bet_cur) {
     return 0;
   } else if (bet_cur + gameState.small_blind > win && win >= bet_cur) {
-    return gameState.current_buy_in;
+    return gameState.current_buy_in - gameState.players[gameState.in_action].bet;
   } else {
     return gameState.players[gameState.in_action].stack;
   }
