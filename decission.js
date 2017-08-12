@@ -23,7 +23,7 @@ function makeDecission(gameState) {
 
   }
 
-  if (win < 0.8*bet_cur) {
+  if (win < bet_cur) {
     return 0;
   } else if (bet_cur + gameState.small_blind > win && win >= bet_cur) {
     return gameState.current_buy_in;
