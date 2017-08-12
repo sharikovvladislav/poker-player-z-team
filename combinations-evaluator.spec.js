@@ -80,4 +80,44 @@ describe('combinations', () => {
       ).toEqual(3);
     });
   });
+  describe('getFourStrength', () => {
+    it('to be defined', () => {
+      expect(combinationsEval.getFourStrength).toBeDefined();
+    });
+    it('1', () => {
+      expect(
+        combinationsEval.getFourStrength(
+          utils.humanToLeanPoker(['3C', '3H'])
+        )
+      ).toEqual(-1);
+    });
+    it('2', () => {
+      expect(
+        combinationsEval.getFourStrength(
+          utils.humanToLeanPoker(['3C', '3C', '3H'])
+        )
+      ).toEqual(-1);
+    });
+    it('3', () => {
+      expect(
+        combinationsEval.getFourStrength(
+          utils.humanToLeanPoker(['KC', 'KH', 'KS', 'KC'])
+        )
+      ).toEqual(11);
+    });
+    it('4', () => {
+      expect(
+        combinationsEval.getFourStrength(
+          utils.humanToLeanPoker(['AC', 'AH', 'AS', 'AD', '3H'])
+        )
+      ).toEqual(12);
+    });
+    it('5', () => {
+      expect(
+        combinationsEval.getFourStrength(
+          utils.humanToLeanPoker(['KC', 'QD', '5C', '5H', '5D', '5S', '3C', '3H'])
+        )
+      ).toEqual(3);
+    });
+  });
 });

@@ -37,8 +37,29 @@ function getSetStrength (sortedCards) {
 
    return -1;
 }
+  
+function getFourStrength (sortedCards) {
+  if (sortedCards.length < 4) {
+    return -1;
+  }
+
+   for (var i = 0; i < sortedCards.length - 3; i++) {
+     const currentRank = sortedCards[i].rank;
+     const nextRank = sortedCards[i+1].rank;
+     const nextNextRank = sortedCards[i+2].rank;
+     const nextNextNextRank = sortedCards[i+2].rank;
+
+     console.log(currentRank, nextRank, nextNextRank);
+     if (currentRank === nextRank && currentRank === nextNextRank && currentRank === nextNextNextRank) {
+       return constants.ranks.indexOf(currentRank);
+     }
+   }
+
+   return -1;
+}
 
 module.exports = {
   getPairStrength,
-  getSetStrength
+  getSetStrength,
+  getFourStrength
 };
