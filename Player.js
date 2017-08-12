@@ -1,3 +1,5 @@
+const getHandPower = require('./get-hand-power');
+
 class Player {
   static get VERSION() {
     return '0.1';
@@ -10,6 +12,13 @@ class Player {
         gameState.current_buy_in -
         gameState.players[gameState.in_action].bet;
 
+      if( getHandPower(
+        gameState.players[gameState.in_action].hole_cards // player cards
+          .concat(gameState.community_cards)) >0 )        // common cards
+      {
+        myBet += gameState.minimum_raise;
+      }
+
       console.log('my bet:', myBet);
       bet(myBet);
     } catch (e) {
@@ -21,7 +30,7 @@ class Player {
 
       console.log('my bet:', myBet);
       bet(myBet);
-      // console.log('exception', e);
+      console.log('exception', e);
       // bet(0);
     }
   }
