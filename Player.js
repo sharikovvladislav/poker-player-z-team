@@ -15,9 +15,7 @@ class Player {
 
       var myBet =
         gameState.current_buy_in -
-        gameState.players[gameState.in_action].bet +
-        gameState.minimum_raise +
-        1;
+        gameState.players[gameState.in_action].bet;
 
       console.log('my bet:', myBet);
       bet(myBet);
