@@ -1,4 +1,5 @@
 const getHandPower = require('./get-hand-power');
+const makeDecission = require('./decission');
 
 class Player {
   static get VERSION() {
@@ -18,6 +19,21 @@ class Player {
       {
         myBet += gameState.minimum_raise;
       }
+      try {
+        console.log('poker-evaluator = ' + require('poker-evaluator'));
+      } catch (e){
+        console.log('poker-evaluator = error');
+      }
+
+      // var myBet;
+      //
+      // if (gameState.community_cards.length > 0) {
+      //   myBet = makeDecission(gameState);
+      // } else {
+      //   myBet =
+      //     gameState.current_buy_in -
+      //     gameState.players[gameState.in_action].bet
+      // }
 
       console.log('my bet:', myBet);
       bet(myBet);

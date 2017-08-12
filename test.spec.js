@@ -1,3 +1,7 @@
-it('base test', () => {
-  expect(true).toEqual(true);
+const decission = require('./decission');
+
+describe('decission', () => {
+  it('smoke', () => {
+    expect(decission).toBeDefined();
+  });
 });

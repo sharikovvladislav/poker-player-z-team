@@ -11,7 +11,8 @@
   "private": true,
   "dependencies": {
     "express": "4.x",
-    "body-parser": "1.15.2"
+    "body-parser": "1.15.2",
+    "poker-evaluator": "latest"
   },
   "devDependencies": {
     "jest": "^20.0.4"
