@@ -25,7 +25,13 @@ it('player smoke', () => {
           stack: 1000,
           status: 'active',
           bet: 0,
-          hole_cards: [Object],
+          hole_cards: [{
+            rank: '6',
+            suit: 'C'
+          }, {
+            rank: '7',
+            suit: 'D'
+          }],
           time_used: 0,
           version: '0.1',
           id: 1
