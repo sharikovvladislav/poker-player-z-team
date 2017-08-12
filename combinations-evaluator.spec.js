@@ -46,9 +46,7 @@ describe('combinations', () => {
     });
     it('1', () => {
       expect(
-        combinationsEval.getSetStrength(
-          utils.humanToLeanPoker(['3C', '3H'])
-        )
+        combinationsEval.getSetStrength(utils.humanToLeanPoker(['3C', '3H']))
       ).toEqual(-1);
     });
     it('2', () => {
@@ -86,9 +84,7 @@ describe('combinations', () => {
     });
     it('1', () => {
       expect(
-        combinationsEval.getFourStrength(
-          utils.humanToLeanPoker(['3C', '3H'])
-        )
+        combinationsEval.getFourStrength(utils.humanToLeanPoker(['3C', '3H']))
       ).toEqual(-1);
     });
     it('2', () => {
@@ -115,9 +111,35 @@ describe('combinations', () => {
     it('5', () => {
       expect(
         combinationsEval.getFourStrength(
-          utils.humanToLeanPoker(['KC', 'QD', '5C', '5H', '5D', '5S', '3C', '3H'])
+          utils.humanToLeanPoker([
+            'KC',
+            'QD',
+            '5C',
+            '5H',
+            '5D',
+            '5S',
+            '3C',
+            '3H'
+          ])
         )
       ).toEqual(3);
+    });
+  });
+
+  describe('getFlushStrengh', () => {
+    it('1', () => {
+      expect(
+        combinationsEval.getFlushStrength(
+          utils.humanToLeanPoker(['3C', '4C', '5C', '6C', '7C'])
+        )
+      ).toEqual(0);
+    });
+    it('1', () => {
+      expect(
+        combinationsEval.getFlushStrength(
+          utils.humanToLeanPoker(['3C', '4C', '5C', '6C', '7C'])
+        )
+      ).toEqual(0);
     });
   });
 });
