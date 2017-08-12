@@ -25,9 +25,22 @@ describe('', () => {
         constants.strengthCoeffiecients.set + 1
       );
     });
-    it('high high', () => {
+    it('high set', () => {
+      console.log(utils.humanToLeanPoker(['3C', 'KD', 'KS', '5C', 'KD', '4D']));
       expect(getHandPower(utils.humanToLeanPoker(['3C', 'KD', 'KS', '5C', 'KD', '4D']))).toEqual(
         constants.strengthCoeffiecients.set + 11
+      );
+    });
+  });
+  describe('fours', () => {
+    it('low fours', () => {
+      expect(getHandPower(utils.humanToLeanPoker(['3C', '3D', 'KD', '3S','4D', '3D']))).toEqual(
+        constants.strengthCoeffiecients.four + 1
+      );
+    });
+    it('high fours', () => {
+      expect(getHandPower(utils.humanToLeanPoker(['3C', 'KD', 'KS', 'KC', 'KD', '4D']))).toEqual(
+        constants.strengthCoeffiecients.four + 11
       );
     });
   });
