@@ -28,7 +28,11 @@ class Player {
   }
 
   static showdown(gameState) {
-    console.log('showdown', gameState);
+    try {
+      console.log('showdown', gameState);
+    } catch (e) {
+      console.log('showdown exception', e);
+    }
   }
 }
 
