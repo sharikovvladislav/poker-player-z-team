@@ -5,7 +5,7 @@ class Player {
 
   static betRequest(gameState, bet) {
     try {
-      console.log(gameState);
+      console.log(JSON.stringify(gameState));
 
       // console.log('gameState.current_buy_in', gameState.current_buy_in);
       // console.log('gameState.in_action', gameState.in_action);
@@ -27,7 +27,7 @@ class Player {
 
   static showdown(gameState) {
     try {
-      console.log('showdown', gameState);
+      console.log('showdown', JSON.stringify(gameState));
     } catch (e) {
       console.log('showdown exception', e);
     }
