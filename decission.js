@@ -12,7 +12,7 @@ const genCount = 10000,
 
 function makeDecission(gameState) {
   var p = getP(gameState), // вероятность выиграша
-      win = 2*p*gameState.pot,
+      win = p*gameState.pot,
       bet_cur = gameState.players[gameState.in_action].bet + gameState.minimum_raise;
 
   try {
@@ -28,7 +28,7 @@ function makeDecission(gameState) {
   } else if (bet_cur + gameState.small_blind > win && win >= bet_cur) {
     return gameState.current_buy_in;
   } else {
-    return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise + 1;
+    return gameState.players[gameState.in_action].stack;
   }
 }
 
