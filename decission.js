@@ -15,23 +15,37 @@ function makeDecission(gameState) {
       win = p*gameState.pot,
       bet_cur = gameState.players[gameState.in_action].bet + gameState.minimum_raise;
 
+  let countWithStack = 0;
+  for (let i = 0; i < gameState.players; i++) {
+    const tablePlayer = gameState.players[i];
+
+    if (i !== gameState.in_action && tablePlayer.stack > 0) {
+      countWithStack += 1;
+    }
+  }
+  if (countWithStack > 1) {
+    // fold
+    return 0;
+  } else {
+    // game
+    //if (gameState.players)
+    // return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise + 1;
+
+    if (win < bet_cur) {
+      return 0;
+    } else if (bet_cur + gameState.small_blind > win && win >= bet_cur) {
+      return gameState.current_buy_in - gameState.players[gameState.in_action].bet;
+    } else {
+      return gameState.players[gameState.in_action].stack;
+    }
+  }
+
   try {
     console.log('win', win)
     console.log('bet_cur', bet_cur)
     console.log('cards', JSON.stringify(utils.leanPokerToHuman(gameState.players[gameState.in_action].hole_cards.concat(gameState.community_cards))));
   } catch (e) {
 
-  }
-
-  //if (gameState.players)
-  // return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise + 1;
-
-  if (win < bet_cur) {
-    return 0;
-  } else if (bet_cur + gameState.small_blind > win && win >= bet_cur) {
-    return gameState.current_buy_in - gameState.players[gameState.in_action].bet;
-  } else {
-    return gameState.players[gameState.in_action].stack;
   }
 }
 
