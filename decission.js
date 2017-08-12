@@ -1,6 +1,6 @@
 const getHandPower = require('./get-hand-power-lib');
 
-const genCount = 100,
+const genCount = 10000,
       common = require('./constants'),
       utils = require('./utils'),
       allCards = common.ranks.reduce(function (result, val) {
