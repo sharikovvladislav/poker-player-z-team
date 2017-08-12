@@ -77,7 +77,7 @@ describe('player test', () => {
 
     expect(spyObject.callback).toHaveBeenCalled();
   });
-  it('player good cards', () => {
+  fit('player good cards', () => {
     var spyObject = {
       callback: function() {}
     };
@@ -166,7 +166,7 @@ describe('player test', () => {
 
     expect(spyObject.callback).toHaveBeenCalled();
   });
-  fit('player bad cards', () => {
+  it('player bad cards', () => {
     var spyObject = {
       callback: function() {}
     };

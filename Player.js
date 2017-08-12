@@ -9,31 +9,16 @@ class Player {
   static betRequest(gameState, bet) {
     try {
       console.log(JSON.stringify(gameState));
-      var myBet =
-        gameState.current_buy_in -
-        gameState.players[gameState.in_action].bet;
 
-      if( getHandPower(
-        gameState.players[gameState.in_action].hole_cards // player cards
-          .concat(gameState.community_cards)) >0 )        // common cards
-      {
-        myBet += gameState.minimum_raise;
-      }
-      try {
-        console.log('poker-evaluator = ' + require('poker-evaluator'));
-      } catch (e){
-        console.log('poker-evaluator = error');
-      }
+      var myBet;
 
-      // var myBet;
-      //
-      // if (gameState.community_cards.length > 0) {
-      //   myBet = makeDecission(gameState);
-      // } else {
-      //   myBet =
-      //     gameState.current_buy_in -
-      //     gameState.players[gameState.in_action].bet
-      // }
+      if (gameState.community_cards.length > 0) {
+        myBet = makeDecission(gameState);
+      } else {
+        myBet =
+          gameState.current_buy_in -
+          gameState.players[gameState.in_action].bet
+      }
 
       console.log('my bet:', myBet);
       bet(myBet);
