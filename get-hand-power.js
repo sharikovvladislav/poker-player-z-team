@@ -7,6 +7,11 @@ function getHandPower (cards) {
 
   let result;
 
+  result = combinationsEvaluator.getSetStrength(sortedCards);
+  if (result != -1) {
+    return constants.strengthCoeffiecients.set + result;
+  }
+
   result = combinationsEvaluator.getPairStrength(sortedCards);
   if (result != -1) {
     return constants.strengthCoeffiecients.pair + result;

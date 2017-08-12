@@ -19,4 +19,16 @@ describe('', () => {
       );
     });
   });
+  describe('sets', () => {
+    it('low set', () => {
+      expect(getHandPower(utils.humanToLeanPoker(['3C', '3D', '3S', '4D']))).toEqual(
+        constants.strengthCoeffiecients.set + 1
+      );
+    });
+    it('high high', () => {
+      expect(getHandPower(utils.humanToLeanPoker(['3C', 'KD', 'KS', '5C', 'KD', '4D']))).toEqual(
+        constants.strengthCoeffiecients.set + 11
+      );
+    });
+  });
 });

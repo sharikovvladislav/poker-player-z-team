@@ -19,7 +19,7 @@ function getPairStrength(sortedCards) {
 }
 
   
-function getSetPairStrength (sortedCards) {
+function getSetStrength (sortedCards) {
   if (sortedCards.length < 3) {
     return -1;
   }
@@ -40,5 +40,5 @@ function getSetPairStrength (sortedCards) {
 
 module.exports = {
   getPairStrength,
-  getSetPairStrength
+  getSetStrength
 };
