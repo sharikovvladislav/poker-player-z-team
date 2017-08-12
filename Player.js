@@ -6,13 +6,6 @@ class Player {
   static betRequest(gameState, bet) {
     try {
       console.log(JSON.stringify(gameState));
-
-      // console.log('gameState.current_buy_in', gameState.current_buy_in);
-      // console.log('gameState.in_action', gameState.in_action);
-      // console.log('gameState.bet', gameState.bet);
-      // console.log('gameState.minimum_raise', gameState.minimum_raise);
-      // console.log('gameState.players', gameState.players);
-
       var myBet =
         gameState.current_buy_in -
         gameState.players[gameState.in_action].bet;
@@ -20,8 +13,16 @@ class Player {
       console.log('my bet:', myBet);
       bet(myBet);
     } catch (e) {
-      console.log('exception', e);
-      bet(0);
+      //дублируем код из try{}
+      console.log(JSON.stringify(gameState));
+      var myBet =
+        gameState.current_buy_in -
+        gameState.players[gameState.in_action].bet;
+
+      console.log('my bet:', myBet);
+      bet(myBet);
+      // console.log('exception', e);
+      // bet(0);
     }
   }
 
@@ -35,3 +36,10 @@ class Player {
 }
 
 module.exports = Player;
+
+
+      // console.log('gameState.current_buy_in', gameState.current_buy_in);
+      // console.log('gameState.in_action', gameState.in_action);
+      // console.log('gameState.bet', gameState.bet);
+      // console.log('gameState.minimum_raise', gameState.minimum_raise);
+      // console.log('gameState.players', gameState.players);
