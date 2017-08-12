@@ -30,11 +30,11 @@ describe('player test', () => {
               hole_cards: [
                 {
                   rank: '6',
-                  suit: 'C'
+                  suit: 'clubs'
                 },
                 {
                   rank: '7',
-                  suit: 'D'
+                  suit: 'diamods'
                 }
               ],
               time_used: 0,
@@ -106,11 +106,11 @@ describe('player test', () => {
               hole_cards: [
                 {
                   rank: '6',
-                  suit: 'C'
+                  suit: 'clubs'
                 },
                 {
                   rank: '7',
-                  suit: 'D'
+                  suit: 'diamonds'
                 }
               ],
               time_used: 0,
@@ -143,15 +143,15 @@ describe('player test', () => {
           community_cards: [
             {
               rank: '8',
-              suit: 'D'
+              suit: 'diamonds'
             },
             {
               rank: '9',
-              suit: 'S'
+              suit: 'spades'
             },
             {
               rank: '10',
-              suit: 'D'
+              suit: 'diamonds'
             }
           ],
           current_buy_in: 1000,
@@ -166,7 +166,7 @@ describe('player test', () => {
 
     expect(spyObject.callback).toHaveBeenCalled();
   });
-  it('player bad cards', () => {
+  fit('player bad cards', () => {
     var spyObject = {
       callback: function() {}
     };
@@ -195,11 +195,11 @@ describe('player test', () => {
               hole_cards: [
                 {
                   rank: '2',
-                  suit: 'C'
+                  suit: 'clubs'
                 },
                 {
                   rank: '5',
-                  suit: 'D'
+                  suit: 'diamonds'
                 }
               ],
               time_used: 0,
@@ -232,15 +232,15 @@ describe('player test', () => {
           community_cards: [
             {
               rank: '8',
-              suit: 'D'
+              suit: 'diamonds'
             },
             {
               rank: 'K',
-              suit: 'S'
+              suit: 'spades'
             },
             {
               rank: '10',
-              suit: 'H'
+              suit: 'hearts'
             }
           ],
           current_buy_in: 1000,
