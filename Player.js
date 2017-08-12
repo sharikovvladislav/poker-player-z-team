@@ -12,13 +12,13 @@ class Player {
 
       var myBet;
 
-      if (gameState.community_cards.length > 0) {
+      // if (gameState.community_cards.length > 0) {
         myBet = makeDecission(gameState);
-      } else {
-        myBet =
-          gameState.current_buy_in -
-          gameState.players[gameState.in_action].bet
-      }
+      // } else {
+      //   myBet =
+      //     gameState.current_buy_in -
+      //     gameState.players[gameState.in_action].bet
+      // }
 
       console.log('my bet:', myBet);
       bet(myBet);

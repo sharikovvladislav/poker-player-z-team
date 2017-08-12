@@ -77,7 +77,7 @@ describe('player test', () => {
 
     expect(spyObject.callback).toHaveBeenCalled();
   });
-  fit('player good cards', () => {
+  it('player good cards', () => {
     var spyObject = {
       callback: function() {}
     };
